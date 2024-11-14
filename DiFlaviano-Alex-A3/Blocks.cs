@@ -26,10 +26,10 @@ namespace Game10003
 
         public void RespawnBlock()
         {
-            // if block is off screen on left then respawn at x position 900
+            // if block is off screen on left then respawn at random x between 1000, 4000
             if(position.X > 0)
             {
-                position.X = 900;
+                position.X = Random.Float(1000, 4000);
             }
         }
     }

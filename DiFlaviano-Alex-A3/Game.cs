@@ -67,6 +67,7 @@ namespace Game10003
                 blocks[i].DrawBlock();
                 blocks[i].MoveBlock();
 
+                // check for collsion with block, substract 1 hp from player and respawn the block at random x position
                 bool collideBlockWithPlayer = player.CollideWithBlock(blocks[i]);
                 if (collideBlockWithPlayer)
                 {
@@ -76,12 +77,14 @@ namespace Game10003
                 }
             }
 
+            // Only Spawn Health Up when player is at 1 HP
             if (player.health == 1)
             {
                 healthUp.DrawHealthUp();
                 healthUp.MoveHealthUp();
             }
 
+            // check for collision with health up and add 1 hp to player
             bool collideHealthWithPlayer = player.CollideWithHealthUp(healthUp);
             if (collideHealthWithPlayer)
             {
