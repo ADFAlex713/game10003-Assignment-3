@@ -25,13 +25,7 @@ namespace Game10003
             Window.SetTitle("2D Game");
             Window.SetSize(800, 600);
 
-
-            // Player Setup
             player.health = 3;
-            player.moveSpeed = 250;
-            player.color = Color.Gray;
-            player.size = new Vector2(80, 40);
-            player.position = new Vector2(Window.Width - 700, Window.Height / 2);
 
             // Blocks Setup
             for (int i = 0; i < blocks.Length; i++)
@@ -43,16 +37,6 @@ namespace Game10003
                 block.color = Color.Yellow;
                 blocks[i] = block;
             }
-
-            // Health Up Setup
-            float randHealthUpY = Random.Float(50, 550);
-            healthUp.position = new Vector2(900, randHealthUpY);
-            healthUp.size = new Vector2(20, 20);
-            healthUp.color = Color.Red;
-
-            projectile.position = player.position;
-            projectile.size = new Vector2(10, 10);
-            projectile.color = Color.Blue;
         }
 
         /// <summary>
@@ -104,6 +88,12 @@ namespace Game10003
             {
                 player.health += 1;
             }
+
+            if(player.health == 0)
+            {
+                Setup();
+            }
+
         }
     }
 }

@@ -11,6 +11,15 @@ namespace Game10003
         public float moveSpeed;
         public int health;
 
+        // Player Setup
+        public Player()
+        {
+            moveSpeed = 250;
+            color = Color.Gray;
+            size = new Vector2(80, 40);
+            position = new Vector2(Window.Width - 700, Window.Height / 2);
+        }
+
         public void DrawPlayer()
         {
             Draw.LineSize = 2;

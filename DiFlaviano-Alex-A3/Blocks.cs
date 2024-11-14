@@ -20,7 +20,7 @@ namespace Game10003
 
         public void MoveBlock()
         {
-            moveSpeed = Random.Float(100, 800);
+            moveSpeed = Random.Float(700, 800);
             position.X -= moveSpeed * Time.DeltaTime;
         }
 

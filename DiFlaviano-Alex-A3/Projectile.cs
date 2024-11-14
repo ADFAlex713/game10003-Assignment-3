@@ -13,6 +13,13 @@ namespace Game10003
         public Color color;
         public float moveSpeed;
 
+        public Projectile()
+        {
+            position = player.position;
+            size = new Vector2(10, 10);
+            color = Color.Blue;
+        }
+
         public void DrawProjectile()
         {
             Draw.LineSize = 2;

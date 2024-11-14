@@ -9,7 +9,15 @@ namespace Game10003
         public Vector2 size;
         public Color color;
         public float moveSpeed;
-
+        
+        // Setup Health Up
+        public HealthUp()
+        {
+            float randHealthUpY = Random.Float(50, 550);
+            position = new Vector2(900, randHealthUpY);
+            size = new Vector2(20, 20);
+            color = Color.Red;
+        }
 
         public void DrawHealthUp()
         {
