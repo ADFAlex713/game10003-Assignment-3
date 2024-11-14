@@ -7,3 +7,4 @@ W - move up
 A - move left
 S - move down
 D - move right
+space - fire projectile
