@@ -25,14 +25,14 @@ namespace Game10003
             Window.SetSize(800, 600);
 
 
-            // setup player
+            // Player Setup
             player.health = 3;
             player.moveSpeed = 250;
             player.color = Color.Gray;
             player.size = new Vector2(80, 40);
             player.position = new Vector2(Window.Width - 700, Window.Height / 2);
 
-            // setup block
+            // Blocks Setup
             for (int i = 0; i < blocks.Length; i++)
             {
                 Blocks block = new Blocks();
@@ -43,7 +43,7 @@ namespace Game10003
                 blocks[i] = block;
             }
 
-            // setup health up
+            // Health Up Setup
             float randHealthUpY = Random.Float(50, 550);
             healthUp.position = new Vector2(900, randHealthUpY);
             healthUp.size = new Vector2(20, 20);
@@ -61,6 +61,7 @@ namespace Game10003
             player.PlayerMovement();
             Text.Draw($"HP: {player.health}", new Vector2(20, 20));
 
+            
             for(int i = 0; i < blocks.Length;i++)
             {
                 blocks[i].DrawBlock();
