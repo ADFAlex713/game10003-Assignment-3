@@ -3,7 +3,7 @@ using System.Numerics;
 
 namespace Game10003
 {
-    public class Game10003Class
+    public class HealthUp
     {
 
     }
