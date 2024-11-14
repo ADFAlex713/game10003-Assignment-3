@@ -64,46 +64,6 @@ namespace Game10003
             }
         }
 
-        public bool CollideWithHealthUp(HealthUp healthUp)
-        {
-            float playerLeft = position.X;
-            float playerRight = position.X + size.X;
-            float playerTop = position.Y;
-            float playerBottom = position.Y + size.Y;
 
-            float healthUpLeft = healthUp.position.X;
-            float healthUpRight = healthUp.position.X + healthUp.position.X;
-            float healthUpTop = healthUp.position.Y;
-            float healthUpBottom = healthUp.position.Y + healthUp.position.Y;
-
-            bool collideHealthUpLeft = playerRight > healthUpLeft;
-            bool collideHealthUpRight = playerLeft > healthUpRight;
-            bool collideHealthUpTop = playerBottom > healthUpTop;
-            bool collideHealthUpBottom = playerTop > healthUpBottom;
-            bool collide = collideHealthUpLeft && collideHealthUpRight && collideHealthUpTop && collideHealthUpBottom;
-
-            return collide;
-        }
-
-        public bool CollideWithBlock(Blocks block)
-        {
-            float playerLeft = position.X;
-            float playerRight = position.X + size.X;
-            float playerTop = position.Y;
-            float playerBottom = position.Y + size.Y;
-
-            float blockLeft = block.position.X;
-            float blockRight = block.position.X + block.position.X; 
-            float blockTop = block.position.Y;
-            float blockBottom = block.position.Y + block.position.Y;
-
-            bool collideBlockLeft = playerRight > blockLeft;
-            bool collideBlockRight = playerLeft > blockRight;
-            bool collideBlockTop = playerBottom > blockTop;
-            bool collideBlockBottom = playerTop > blockBottom;
-            bool collide = collideBlockLeft && collideBlockRight && collideBlockTop && collideBlockBottom;
-
-            return collide;
-        }
     }
 }

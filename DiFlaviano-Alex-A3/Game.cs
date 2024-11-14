@@ -74,6 +74,18 @@ namespace Game10003
                     blocks[i].RespawnBlock();
                 }
             }
+
+            if (player.health == 1)
+            {
+                healthUp.DrawHealthUp();
+                healthUp.MoveHealthUp();
+
+                bool collideWithPlayer = player.CollideWithHealthUp(healthUp);
+                if (collideWithPlayer)
+                {
+                    player.health += 1;
+                }
+            }
         }
     }
 }
