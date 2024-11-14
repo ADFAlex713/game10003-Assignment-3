@@ -38,7 +38,7 @@ namespace Game10003
                 Blocks block = new Blocks();
                 float randBlockY = Random.Float(0, 600);
                 block.position = new Vector2(Random.Float(1000, 4000), randBlockY);
-                block.size = new Vector2(Random.Float(150, 300), Random.Float(10, 30));
+                block.size = new Vector2(Random.Float(80, 300), Random.Float(10, 30));
                 block.color = Color.Yellow;
                 blocks[i] = block;
             }
@@ -67,8 +67,8 @@ namespace Game10003
                 blocks[i].DrawBlock();
                 blocks[i].MoveBlock();
 
-                bool collideWithPlayer = player.CollideWithBlock(blocks[i]);
-                if (collideWithPlayer)
+                bool collideBlockWithPlayer = player.CollideWithBlock(blocks[i]);
+                if (collideBlockWithPlayer)
                 {
                     player.health -= 1;
                     blocks[i].position.X = Random.Float(1000, 4000);
@@ -80,12 +80,12 @@ namespace Game10003
             {
                 healthUp.DrawHealthUp();
                 healthUp.MoveHealthUp();
+            }
 
-                bool collideWithPlayer = player.CollideWithHealthUp(healthUp);
-                if (collideWithPlayer)
-                {
-                    player.health += 1;
-                }
+            bool collideHealthWithPlayer = player.CollideWithHealthUp(healthUp);
+            if (collideHealthWithPlayer)
+            {
+                player.health += 1;
             }
         }
     }

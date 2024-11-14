@@ -26,6 +26,7 @@ namespace Game10003
 
         public void RespawnBlock()
         {
+            // if block is off screen on left then respawn at x position 900
             if(position.X > 0)
             {
                 position.X = 900;

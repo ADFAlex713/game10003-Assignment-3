@@ -19,6 +19,7 @@ namespace Game10003
             Draw.Rectangle(position, size);
         }
 
+        // Controls for Player Movement
         public void PlayerMovement()
         {
             // Move Left
@@ -64,6 +65,7 @@ namespace Game10003
             }
         }
 
+        // Player Collision with Health Up
         public bool CollideWithHealthUp(HealthUp healthUp)
         {
             float playerLeft = position.X;
@@ -85,5 +87,26 @@ namespace Game10003
             return collide;
         }
 
+        // Player Collision with Block Obstacles
+        public bool CollideWithBlock(Blocks block)
+        {
+            float playerLeft = position.X;
+            float playerRight = position.X + size.X;
+            float playerTop = position.Y;
+            float playerBottom = position.Y + size.Y;
+
+            float blockLeft = block.position.X;
+            float blockRight = block.position.X + block.position.X;
+            float blockTop = block.position.Y;
+            float blockBottom = block.position.Y + block.position.Y;
+
+            bool collideBlockLeft = playerRight > blockLeft;
+            bool collideBlockRight = playerLeft > blockRight;
+            bool collideBlockTop = playerBottom > blockTop;
+            bool collideBlockBottom = playerTop > blockBottom;
+            bool collide = collideBlockLeft && collideBlockRight && collideBlockTop && collideBlockBottom;
+
+            return collide;
+        }
     }
 }
