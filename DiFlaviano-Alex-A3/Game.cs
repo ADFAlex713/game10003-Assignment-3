@@ -15,6 +15,7 @@ namespace Game10003
         Player player = new Player();
         Blocks[] blocks = new Blocks[10];
         HealthUp healthUp = new HealthUp();
+        Projectile projectile = new Projectile();
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -48,6 +49,10 @@ namespace Game10003
             healthUp.position = new Vector2(900, randHealthUpY);
             healthUp.size = new Vector2(20, 20);
             healthUp.color = Color.Red;
+
+            projectile.position = player.position;
+            projectile.size = new Vector2(10, 10);
+            projectile.color = Color.Blue;
         }
 
         /// <summary>
@@ -61,6 +66,7 @@ namespace Game10003
             player.PlayerMovement();
             Text.Draw($"HP: {player.health}", new Vector2(20, 20));
 
+            projectile.FireProjectile();
             
             for(int i = 0; i < blocks.Length;i++)
             {
@@ -68,10 +74,18 @@ namespace Game10003
                 blocks[i].MoveBlock();
 
                 // check for collsion with block, substract 1 hp from player and respawn the block at random x position
-                bool collideBlockWithPlayer = player.CollideWithBlock(blocks[i]);
+                bool collideBlockWithPlayer = player.CollidePlayerWithBlock(blocks[i]);
                 if (collideBlockWithPlayer)
                 {
                     player.health -= 1;
+                    blocks[i].position.X = Random.Float(1000, 4000);
+                    blocks[i].RespawnBlock();
+                }
+
+                // check for collision between projectile and block, respawn block if hit
+                bool collideProjectileWithBlock = projectile.CollideProjWithBlock(blocks[i]);
+                if (collideProjectileWithBlock)
+                {
                     blocks[i].position.X = Random.Float(1000, 4000);
                     blocks[i].RespawnBlock();
                 }

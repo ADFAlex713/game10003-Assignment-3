@@ -88,7 +88,7 @@ namespace Game10003
         }
 
         // Player Collision with Block Obstacles
-        public bool CollideWithBlock(Blocks block)
+        public bool CollidePlayerWithBlock(Blocks block)
         {
             float playerLeft = position.X;
             float playerRight = position.X + size.X;
