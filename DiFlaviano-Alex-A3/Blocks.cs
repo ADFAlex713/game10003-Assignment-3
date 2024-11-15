@@ -18,18 +18,21 @@ namespace Game10003
             Draw.Rectangle(position, size);
         }
 
+        // Move Blocks accross screen at random speeds
         public void MoveBlock()
         {
             moveSpeed = Random.Float(700, 800);
             position.X -= moveSpeed * Time.DeltaTime;
         }
 
+        // respawns block on right side of screen at random X value
         public void RespawnBlock()
         {
-            // if block is off screen on left then respawn at random x between 1000, 4000
-            if(position.X > 0)
+            // if block is off screen on left then respawn at random x and y value
+            if((position.X - size.X) > 0)
             {
                 position.X = Random.Float(1000, 4000);
+                position.Y = Random.Float(100, 700);
             }
         }
     }

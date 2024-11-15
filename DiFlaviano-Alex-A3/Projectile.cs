@@ -13,6 +13,7 @@ namespace Game10003
         public Color color;
         public float moveSpeed;
 
+        // Setup Projectile
         public Projectile()
         {
             position = player.position;
@@ -32,7 +33,7 @@ namespace Game10003
         public void FireProjectile()
         {
             if (Input.IsKeyboardKeyDown(KeyboardInput.Space))
-            {
+            { 
                 DrawProjectile();
                 moveSpeed = 250;
                 position.X += moveSpeed * Time.DeltaTime;

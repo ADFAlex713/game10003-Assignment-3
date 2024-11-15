@@ -33,7 +33,7 @@ namespace Game10003
                 Blocks block = new Blocks();
                 float randBlockY = Random.Float(0, 600);
                 block.position = new Vector2(Random.Float(1000, 4000), randBlockY);
-                block.size = new Vector2(Random.Float(80, 300), Random.Float(10, 30));
+                block.size = new Vector2(Random.Float(200,350),Random.Float(10, 30));
                 block.color = Color.Yellow;
                 blocks[i] = block;
             }

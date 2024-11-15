@@ -27,6 +27,7 @@ namespace Game10003
             Draw.Rectangle(position, size);
         }
 
+        // Move Health Up Block
         public void MoveHealthUp()
         {
             moveSpeed = Random.Float(500, 700);
